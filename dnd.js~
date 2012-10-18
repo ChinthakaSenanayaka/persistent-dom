@@ -54,7 +54,7 @@ function handleDropEvent( event, ui ) {
 	$("."+itemNo).css('width', $('.source').css('width'));
 	$("."+itemNo).css('background-color', $('.source').css('background-color'));
 	
-	$.post('http://localhost/persistent-dom/save.php', {offset_top : offset_top_val.toString(), offset_left : offset_left_val.toString()}, success, 'text');
+	$.post('http://localhost/jsdnd/save.php', {offset_top : offset_top_val.toString(), offset_left : offset_left_val.toString()}, success, 'text');
 }
 
 function success(data, textStatus, jqXHR) {
