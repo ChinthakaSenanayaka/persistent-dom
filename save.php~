@@ -31,6 +31,7 @@
 		$itemObj->setOffsetTop($offset_top);
 		$itemObj->setOffsetLeft($offset_left);
 		$itemRepository->updateItem($itemObj);
+		echo "top: ".$offset_top." left: ".$offset_left;
 		
 	} else if($operation === 'delete') {
 		
