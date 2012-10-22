@@ -4,10 +4,40 @@
 	include 'JsonGenerator.php';
 	
 	extract($_POST);
+	extract($_GET);
 	
-	$itemRepository = new ItemRepository;
+	$itemRepository = new ItemRepository("localhost", "root", "freebird", "persistent_dom");
 	$jsonGenerator = new JsonGenerator;
 	
-	echo $jsonGenerator->generateJsonStr($itemRepository->getAllItems());
+	if($operation === "selectall") {
+	
+		echo $jsonGenerator->generateJsonStr($itemRepository->getAllItems());
+		
+	} else if($operation === 'select') {
+		
+		
+		
+	} else if($operation === 'create') {
+		
+		$itemObj = new Item;
+		$itemObj->setOffsetTop($offset_top);
+		$itemObj->setOffsetLeft($offset_left);
+		$itemRepository->createItem($itemObj);
+		
+	} else if($operation === 'update') {
+		
+		$itemObj = new Item;
+		$itemObj->setId($id);
+		$itemObj->setOffsetTop($offset_top);
+		$itemObj->setOffsetLeft($offset_left);
+		$itemRepository->updateItem($itemObj);
+		
+	} else if($operation === 'delete') {
+		
+		$itemObj = new Item;
+		$itemObj->setId($id);
+		$itemRepository->deleteItem($itemObj);
+		
+	}
 	
 ?>
