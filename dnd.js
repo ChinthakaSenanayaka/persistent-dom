@@ -18,6 +18,9 @@ $(document).ready(
 		
 		$('body').click(bodyClickEvent);
 		$(window).on('keypress', keyPressEvent);
+		$('.hitpanel').hide();
+		$('.hitbar').hover(hoverInOut);
+		$('.hitpanel').hover(hitPanelHoverIn, hitPanelHoverOut);
 	
 	}
 	
@@ -88,7 +91,7 @@ function handleDropInsideEvent( event, ui ) {
 	var offset_left_val2 = $(this).offset().left - $(this).parent().offset().left;
 	
 	var classNames = $(this).attr('class').split(' ');
-	$.post(baseUrl+httpReqReceiver+'?operation=update', {id : classNames[0].substring(4, 5), offset_top : offset_top_val2.toString(), offset_left : offset_left_val2.toString()}, updateItemSuccess, 'text');
+	$.post(baseUrl+httpReqReceiver+'?operation=update', {id : classNames[0].substring(4), offset_top : offset_top_val2.toString(), offset_left : offset_left_val2.toString()}, updateItemSuccess, 'text');
 	
 }
 
@@ -100,7 +103,7 @@ function clickEventHandler(event) {
 	
 	if(clickedItem == null) {
 		
-		$(event.target).css('background-color', "grey");
+		$(event.target).css('background-color', "#9966FF");
 		
 	} else {
 		
@@ -134,7 +137,7 @@ function keyPressEvent(event) {
 		$(clickedItem).remove();
 		clickedItem = null;
 		
-		$.post(baseUrl+httpReqReceiver+'?operation=delete', {id : classNames[0].substring(4, 5)}, deleteItemSuccess, 'text');
+		$.post(baseUrl+httpReqReceiver+'?operation=delete', {id : classNames[0].substring(4)}, deleteItemSuccess, 'text');
 		
 	}
 	
@@ -142,4 +145,18 @@ function keyPressEvent(event) {
 
 function deleteItemSuccess(data, textStatus, jqXHR) {
 	
+}
+
+function hoverInOut(event) {
+	
+	$('.hitpanel').show("slide", { direction: "left" }, 800);
+	
+}
+
+function hitPanelHoverIn(event) {
+	$('.hitpanel').show();
+}
+
+function hitPanelHoverOut(event) {
+	$('.hitpanel').hide("slide", { direction: "left" }, 800);
 }

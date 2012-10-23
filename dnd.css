@@ -1,14 +1,37 @@
 .source {
 	height: 100px;
 	width: 100px;
-	background-color: red;
+	background-color: #9933CC;
+	z-index: 3;
 }
 
 .target {
-	height: 500px;
-	width: 1200px;
-	background-color: green;
+	height: 571px;
+	width: 1326px;
+	background-color: #663399;
+	border: 2px solid #660066;
 	position: absolute;
-	top: 200px;
-	left: 50px;
+	top: 100px;
+	left: 20px;
+}
+
+.hitbar {
+	height: 555px;
+	width: 1px;
+	background-color: transparent;
+	position: absolute;
+	top: 100px;
+	left: 0px;
+}
+
+.hitpanel {
+	height: 551px;
+	width: 120px;
+	background-color: #CCFFCC;
+	border: 2px solid #CCFF33;
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	padding: 10px;
+	z-index: 2;
 }
