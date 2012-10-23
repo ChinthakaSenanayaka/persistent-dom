@@ -6,7 +6,7 @@ Date: 23-Oct-2012
 pre-requisites:
 	1. LAMP server
 	2. Run schema.sql on database.
-	3. Change database username, password, etc on ItemRepository.php
+	3. Change database username, password, etc on save.php
 
 post-requisites:
 	2. hit mouse to left edge of the browser.

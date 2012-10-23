@@ -6,7 +6,7 @@
 	extract($_POST);
 	extract($_GET);
 	
-	$itemRepository = new ItemRepository("localhost", "root", "freebird", "persistent_dom");
+	$itemRepository = new ItemRepository("localhost", "***", "***", "persistent_dom");
 	$jsonGenerator = new JsonGenerator;
 	
 	if($operation === "selectall") {
